@@ -210,7 +210,7 @@ private fun FooterNote() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun CategoryScreen(category: Category, onBack: () -> Unit) {
-    var query by rememberSaveable { mutableStateOf("") }
+    var query by rememberSaveable(category.id) { mutableStateOf("") }
     val items = category.items.filter { item ->
         val q = query.trim().lowercase()
         q.isEmpty() ||

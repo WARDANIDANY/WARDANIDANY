@@ -42,7 +42,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -211,7 +210,7 @@ private fun FooterNote() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun CategoryScreen(category: Category, onBack: () -> Unit) {
-    var query by remember { mutableStateOf("") }
+    var query by rememberSaveable { mutableStateOf("") }
     val items = category.items.filter { item ->
         val q = query.trim().lowercase()
         q.isEmpty() ||
